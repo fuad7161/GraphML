@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All HTML Tags Example</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        header,
+        footer {
+            background: #eee;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        function hello() {
+            alert("Hello from JavaScript!");
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Website Header</h1>
+        <nav>
+            <a href="#">Home</a> |
+            <a href="#">About</a> |
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Text Formatting</h2>
+            <p>This is a <strong>strong</strong>, <em>emphasized</em>, <b>bold</b>, and <i>italic</i> text.</p>
+            <p>Example of <mark>highlight</mark>, H<sub>2</sub>O, and x<sup>2</sup>.</p>
+            <hr>
+        </section>
+
+        <section>
+            <h2>Lists</h2>
+
+            <h3>Unordered List</h3>
+            <ul>
+                <li>Apple</li>
+                <li>Mango</li>
+                <li>Banana</li>
+            </ul>
+
+            <h3>Ordered List</h3>
+            <ol>
+                <li>Step One</li>
+                <li>Step Two</li>
+                <li>Step Three</li>
+            </ol>
+
+        </section>
+
+        <section>
+            <h2>Table Example</h2>
+            <table border="1">
+                <caption>Student Data</caption>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Country</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John</td>
+                        <td>20</td>
+                        <td>USA</td>
+                    </tr>
+                    <tr>
+                        <td>Rahim</td>
+                        <td>21</td>
+                        <td>Bangladesh</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Image and Media</h2>
+
+            <img src="image.jpg" alt="Example Image" width="200">
+
+            <br><br>
+
+            <audio controls>
+                <source src="audio.mp3" type="audio/mpeg">
+            </audio>
+
+            <br><br>
+
+            <video width="320" height="240" controls>
+                <source src="video.mp4" type="video/mp4">
+            </video>
+
+        </section>
+
+        <section>
+            <h2>Form Example</h2>
+
+            <form>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email"><br><br>
+
+                <label>Gender:</label>
+                <select>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+
+                <br><br>
+
+                <textarea placeholder="Write message"></textarea>
+
+                <br><br>
+
+                <button type="button" onclick="hello()">Submit</button>
+
+            </form>
+
+        </section>
+
+        <section>
+            <h2>Other Tags</h2>
+
+            <figure>
+                <img src="image.jpg" width="150">
+                <figcaption>Example Figure</figcaption>
+            </figure>
+
+            <details>
+                <summary>Click to open</summary>
+                <p>This text appears when opened.</p>
+            </details>
+
+            <progress value="60" max="100"></progress>
+
+            <br><br>
+
+            <meter value="0.7">70%</meter>
+
+        </section>
+
+        <aside>
+            <h3>Sidebar</h3>
+            <p>This is additional information.</p>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Website</p>
+    </footer>
+
+</body>
+
+</html>
