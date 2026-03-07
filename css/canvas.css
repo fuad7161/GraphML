@@ -1,0 +1,73 @@
+/* ── canvas.css ────────────────────────────────────────────────────────────────
+   Canvas wrapper, the canvas element itself, zoom overlay buttons,
+   and the tooltip popup.
+─────────────────────────────────────────────────────────────────────────────── */
+
+/* Wrapper gives position:relative so overlay buttons can be absolutely placed */
+.canvas-wrap {
+    flex: 1;
+    position: relative;
+}
+
+/* The <canvas> element */
+canvas {
+    width: 100%;
+    background: radial-gradient(ellipse at 30% 40%, rgba(124, 58, 237, 0.07) 0%, rgba(37, 99, 235, 0.05) 50%, rgba(0, 0, 0, 0) 70%),
+        linear-gradient(180deg, #0d0d1f 0%, #0a0a16 100%);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+    display: block;
+    cursor: grab;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+canvas:active {
+    cursor: grabbing;
+}
+
+/* ── Zoom overlay buttons (+, −, ⤢) ─────────────────────────────────────── */
+
+.canvas-overlay {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #8899bb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: none;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #e0e0ff;
+}
+
+/* ── Tooltip popup ────────────────────────────────────────────────────────── */
+
+.tooltip {
+    position: absolute;
+    background: rgba(20, 20, 40, 0.95);
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    border-radius: 8px;
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    color: #c0c8e8;
+    pointer-events: none;
+    display: none;
+    z-index: 10;
+    white-space: nowrap;
+}

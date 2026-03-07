@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Visualizer</title>
+    <!-- 1. Reset, body, fonts, scrollbar -->
+    <link rel="stylesheet" href="css/base.css">
+    <!-- 2. Top header bar -->
+    <link rel="stylesheet" href="css/header.css">
+    <!-- 3. Main flex layout, sidebar, cards -->
+    <link rel="stylesheet" href="css/layout.css">
+    <!-- 4. Sidebar contents: input, buttons, stats, legend, hints -->
+    <link rel="stylesheet" href="css/sidebar.css">
+    <!-- 5. Canvas element, overlay buttons, tooltip -->
+    <link rel="stylesheet" href="css/canvas.css">
+    <!-- 6. Status bar and live dot animation -->
+    <link rel="stylesheet" href="css/statusbar.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">⬡</div>
+        <h1>Graph Visualizer</h1>
+        <span class="badge">INTERACTIVE</span>
+    </header>
+
+    <div class="main">
+
+        <div class="sidebar">
+
+            <div class="card">
+                <h3>Edge Input</h3>
+                <textarea id="input"></textarea>
+                <div class="btn-row" style="margin-top:12px">
+                    <button class="btn-primary" onclick="buildTree()">▶ Visualize</button>
+                    <button class="btn-secondary" onclick="resetView()">⟳ Reset</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Graph Stats</h3>
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="val" id="stat-nodes">0</div>
+                        <div class="lbl">Nodes</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val" id="stat-edges">0</div>
+                        <div class="lbl">Edges</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val" id="stat-depth">0</div>
+                        <div class="lbl">Depth</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="val" id="stat-leaves">0</div>
+                        <div class="lbl">Leaves</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Legend</h3>
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background:linear-gradient(135deg,#7c3aed,#4f46e5)"></div>
+                        Root Node
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background:linear-gradient(135deg,#0ea5e9,#6366f1)"></div>
+                        Inner Node
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background:linear-gradient(135deg,#10b981,#059669)"></div>
+                        Leaf Node
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-dot" style="background:#f59e0b; border-radius:2px; width:16px; height:6px;">
+                        </div>
+                        Hovered Node
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Tips</h3>
+                <div class="hint">
+                    🖱 <b>Drag</b> canvas to pan<br>
+                    🖱 <b>Scroll</b> to zoom in/out<br>
+                    🖱 <b>Hover</b> a node to highlight<br>
+                    🖱 <b>Drag</b> nodes to reposition
+                </div>
+            </div>
+
+        </div>
+
+        <div class="canvas-wrap">
+            <canvas id="canvas" width="950" height="600"></canvas>
+            <div class="canvas-overlay">
+                <div class="icon-btn" title="Zoom In" onclick="zoomAt(1.2)">+</div>
+                <div class="icon-btn" title="Zoom Out" onclick="zoomAt(0.83)">−</div>
+                <div class="icon-btn" title="Fit to screen" onclick="resetView()">⤢</div>
+            </div>
+            <div class="tooltip" id="tooltip"></div>
+        </div>
+
+    </div>
+
+    <div class="status-bar">
+        <span>
+            <div class="dot-live"></div> Ready
+        </span>
+        <span id="zoom-label">Zoom: 100%</span>
+        <span id="hover-label">Hover a node for info</span>
+    </div>
+    <!-- 1. Global variables & canvas context -->
+    <script src="js/state.js"></script>
+    <!-- 2. Graph parsing, DFS layout, stats -->
+    <script src="js/layout.js"></script>
+    <!-- 3. All canvas drawing functions -->
+    <script src="js/draw.js"></script>
+    <!-- 4. Pan / zoom viewport helpers -->
+    <script src="js/viewport.js"></script>
+    <!-- 5. Intro animation & render loop -->
+    <script src="js/animation.js"></script>
+    <!-- 6. Mouse events & boot (calls buildTree) -->
+    <script src="js/interaction.js"></script>
+
+
+</body>
+
+</html>

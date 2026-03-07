@@ -1,0 +1,41 @@
+/* ── statusbar.css ─────────────────────────────────────────────────────────────
+   Bottom status bar: zoom label, hover info text, and the pulsing live dot.
+─────────────────────────────────────────────────────────────────────────────── */
+
+.status-bar {
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 32px 16px;
+    display: flex;
+    gap: 20px;
+    font-size: 0.72rem;
+    color: #3d4a63;
+}
+
+.status-bar span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Pulsing green live indicator dot */
+.dot-live {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 6px #34d399;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+}

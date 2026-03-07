@@ -1,0 +1,40 @@
+/* ── layout.css ────────────────────────────────────────────────────────────────
+   Page-level layout: the main flex row, sidebar column, and card panels.
+─────────────────────────────────────────────────────────────────────────────── */
+
+/* Main content area: sidebar + canvas side by side */
+.main {
+    display: flex;
+    gap: 24px;
+    padding: 28px 32px;
+    width: 100%;
+    max-width: 1300px;
+    align-items: flex-start;
+}
+
+/* Left panel: fixed-width column of cards */
+.sidebar {
+    width: 270px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Reusable glass-dark card container */
+.card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 18px;
+}
+
+/* Card section heading */
+.card h3 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7c8baa;
+    margin-bottom: 12px;
+}
