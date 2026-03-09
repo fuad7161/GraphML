@@ -5,11 +5,11 @@
 .status-bar {
     width: 100%;
     max-width: 1300px;
-    padding: 0 32px 16px;
+    padding: 0 24px 14px;
     display: flex;
-    gap: 20px;
-    font-size: 0.72rem;
-    color: #3d4a63;
+    gap: 18px;
+    font-size: 0.68rem;
+    color: #334155;
 }
 
 .status-bar span {
@@ -18,13 +18,11 @@
     gap: 5px;
 }
 
-/* Pulsing green live indicator dot */
 .dot-live {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
-    background: #34d399;
-    box-shadow: 0 0 6px #34d399;
+    background: #22d3ee;
     animation: pulse 2s infinite;
 }
 
@@ -36,6 +34,6 @@
     }
 
     50% {
-        opacity: 0.4;
+        opacity: 0.3;
     }
 }

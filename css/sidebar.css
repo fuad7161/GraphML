@@ -7,130 +7,92 @@
 
 textarea {
     width: 100%;
-    height: 160px;
-    background: rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 12px;
-    color: #c9d1f0;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 7px;
+    padding: 10px;
+    color: #94a3b8;
     font-family: 'Courier New', monospace;
-    font-size: 0.9rem;
+    font-size: 0.78rem;
     resize: vertical;
     outline: none;
-    line-height: 1.7;
+    line-height: 1.6;
     transition: border-color 0.2s;
 }
 
 textarea:focus {
-    border-color: rgba(124, 58, 237, 0.5);
-    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+    border-color: rgba(99, 102, 241, 0.4);
 }
-
-/* ── Buttons ──────────────────────────────────────────────────────────────── */
 
 .btn-row {
     display: flex;
-    gap: 8px;
+    gap: 7px;
+    margin-top: 10px;
 }
 
 button {
     flex: 1;
-    padding: 10px 14px;
+    padding: 8px 12px;
     border: none;
-    border-radius: 10px;
+    border-radius: 7px;
     font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.15s;
 }
 
-/* Primary — purple gradient with glow */
 .btn-primary {
-    background: linear-gradient(135deg, #7c3aed, #4f46e5);
-    color: white;
-    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.35);
+    background: #4f46e5;
+    color: #fff;
 }
 
 .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+    background: #6366f1;
 }
 
-.btn-primary:active {
-    transform: translateY(0);
-}
-
-/* Secondary — ghost style */
 .btn-secondary {
-    background: rgba(255, 255, 255, 0.06);
-    color: #a0aec0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+    color: #64748b;
+    border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #e0e0ff;
+    background: rgba(255, 255, 255, 0.08);
+    color: #94a3b8;
 }
-
-/* ── Stats grid (2×2) ─────────────────────────────────────────────────────── */
 
 .stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    gap: 8px;
 }
 
 .stat-box {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    padding: 12px;
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 7px;
+    padding: 10px;
     text-align: center;
 }
 
 .stat-box .val {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #a78bfa, #60a5fa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #818cf8;
 }
 
 .stat-box .lbl {
-    font-size: 0.7rem;
-    color: #6b7a99;
+    font-size: 0.62rem;
+    color: #475569;
     margin-top: 2px;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
-
-/* ── Legend ───────────────────────────────────────────────────────────────── */
-
-.legend {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.8rem;
-    color: #8899bb;
-}
-
-.legend-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-
-/* ── Tips hint text ───────────────────────────────────────────────────────── */
 
 .hint {
-    font-size: 0.72rem;
-    color: #4a5568;
-    line-height: 1.5;
+    font-size: 0.7rem;
+    color: #334155;
+    line-height: 1.9;
 }

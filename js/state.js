@@ -35,3 +35,6 @@ let hoveredNode = null
 
 // ─── Particle system (reserved) ───────────────────────────────────────────────
 let particles = []
+
+// ─── Node label map ───────────────────────────────────────────────────────────
+let nodeLabels = {}  // { id: { tag, info } } populated from HTML parse

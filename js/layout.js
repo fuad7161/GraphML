@@ -10,35 +10,36 @@ function buildTree() {
     edges = []
     adj = {}
     nodeList = []
+    nodeLabels = {}
     particles = []
     animProgress = 0
     nodeAlpha = {}
 
     const text = document.getElementById("input").value.trim()
-    const lines = text.split("\n").filter(l => l.trim())
+    if (!text) return
 
-    for (let line of lines) {
-        const parts = line.trim().split(/\s+/).map(Number)
-        if (parts.length < 2 || parts.some(isNaN)) continue
+    // Parse the HTML input into an edge list + label map
+    const result = htmlToEdges(text)
+    if (!result.rootId) return
 
-        const [u, v] = parts
-        edges.push([u, v])
+    edges = result.edges
+    Object.assign(nodeLabels, result.nodeLabels)
 
+    // Build undirected adjacency list from parent→child edges
+    for (const [u, v] of edges) {
         if (!adj[u]) adj[u] = []
         if (!adj[v]) adj[v] = []
         adj[u].push(v)
-        adj[v].push(u)   // undirected graph
+        adj[v].push(u)
     }
 
-    if (edges.length === 0) return
-
-    layoutTree()
+    layoutTree(result.rootId)
     updateStats()
     startAnimation()
 }
 
-function layoutTree() {
-    rootNode = edges[0][0]
+function layoutTree(startRoot) {
+    rootNode = startRoot !== undefined ? startRoot : edges[0][0]
     const levels = {}   // { depth: [nodeId, ...] }
     maxDepth = 0
 
@@ -49,7 +50,7 @@ function layoutTree() {
         nodeList.push(node)
         if (depth > maxDepth) maxDepth = depth
 
-        for (let next of adj[node]) {
+        for (let next of (adj[node] || [])) {
             if (next === parent) continue   // skip parent to avoid cycles
             dfs(next, depth + 1, node)
         }

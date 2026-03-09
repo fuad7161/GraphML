@@ -2,39 +2,36 @@
    Page-level layout: the main flex row, sidebar column, and card panels.
 ─────────────────────────────────────────────────────────────────────────────── */
 
-/* Main content area: sidebar + canvas side by side */
 .main {
     display: flex;
-    gap: 24px;
-    padding: 28px 32px;
+    gap: 18px;
+    padding: 18px 24px;
     width: 100%;
     max-width: 1300px;
     align-items: flex-start;
+    flex: 1;
 }
 
-/* Left panel: fixed-width column of cards */
 .sidebar {
-    width: 270px;
+    width: 250px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 10px;
 }
 
-/* Reusable glass-dark card container */
 .card {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    padding: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 14px;
 }
 
-/* Card section heading */
 .card h3 {
-    font-size: 0.78rem;
+    font-size: 0.68rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: #7c8baa;
-    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+    color: #475569;
+    margin-bottom: 10px;
 }

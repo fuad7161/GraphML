@@ -76,11 +76,13 @@ canvas.addEventListener('mousemove', e => {
     if (hit !== hoveredNode) {
         hoveredNode = hit
         if (hit !== null) {
-            const deg = (adj[hit] || []).length
+            const nl = nodeLabels[hit]
+            const tag = nl ? nl.tag : String(hit)
+            const info = nl && nl.info ? ` · "${nl.info.trim().slice(0, 24)}"` : ''
             document.getElementById('hover-label').textContent =
-                `Node ${hit} · Degree: ${deg} · Type: ${nodes[hit].type}`
+                `<${tag}>${info} · ${nodes[hit].type}`
         } else {
-            document.getElementById('hover-label').textContent = 'Hover a node for info'
+            document.getElementById('hover-label').textContent = 'Hover a node'
         }
         draw()
     }
@@ -125,4 +127,21 @@ canvas.addEventListener('wheel', e => {
 }, { passive: false })
 
 // ─── Boot ─────────────────────────────────────────────────────────────────────
+document.getElementById('input').value = `<html>
+  <head>
+    <title>Demo</title>
+  </head>
+  <body>
+    <header>
+      <h1>Title</h1>
+    </header>
+    <main>
+      <p>Hello</p>
+      <ul>
+        <li>Item A</li>
+        <li>Item B</li>
+      </ul>
+    </main>
+  </body>
+</html>`
 buildTree()

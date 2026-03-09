@@ -171,14 +171,16 @@ function drawNodes() {
         ctx.fillStyle = shine
         ctx.fill()
 
-        // 6. Text label
+        // 6. Text label (show HTML tag name)
         ctx.globalAlpha = alpha
         ctx.shadowBlur = 0
         ctx.fillStyle = 'white'
-        ctx.font = `bold ${r > 18 ? 13 : 11}px 'Inter', Arial`
+        const labelText = nodeLabels[id] ? nodeLabels[id].tag : String(id)
+        const fontSize = labelText.length > 5 ? 10 : labelText.length > 3 ? 12 : 13
+        ctx.font = `bold ${fontSize}px 'Inter', Arial`
         ctx.textAlign = 'center'
         ctx.textBaseline = 'middle'
-        ctx.fillText(id, node.x, node.y)
+        ctx.fillText(labelText.slice(0, 6), node.x, node.y)
 
         ctx.restore()
     }
