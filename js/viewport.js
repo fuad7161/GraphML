@@ -43,21 +43,56 @@ function zoomAt(factor) {
     draw()
 }
 
-// ── Responsive canvas resize ─────────────────────────────────────────────────
+// ── Canvas resolution sync ───────────────────────────────────────────────────
+// Sync the canvas drawing-buffer to its CSS pixel size (called once at init
+// and again whenever we dynamically resize the wrapper for large trees).
 
-const _canvasWrap = document.querySelector('.canvas-wrap')
-if (_canvasWrap && typeof ResizeObserver !== 'undefined') {
-    const _resizer = new ResizeObserver(entries => {
-        for (const entry of entries) {
-            const { width, height } = entry.contentRect
-            const dpr = window.devicePixelRatio || 1
-            canvas.width = Math.round(width * dpr)
-            canvas.height = Math.round(height * dpr)
-            canvas.style.width = width + 'px'
-            canvas.style.height = height + 'px'
-            if (nodeList.length) resetView()
-            else draw()
-        }
-    })
-    _resizer.observe(_canvasWrap)
+const BASE_CANVAS_HEIGHT = 600
+
+function syncCanvasSize() {
+    const wrap = document.querySelector('.canvas-wrap')
+    if (!wrap) return
+    const rect = wrap.getBoundingClientRect()
+    const dpr = window.devicePixelRatio || 1
+    canvas.width = Math.round(rect.width * dpr)
+    canvas.height = Math.round(rect.height * dpr)
+    canvas.style.width = rect.width + 'px'
+    canvas.style.height = rect.height + 'px'
+}
+
+// Dynamically grow / shrink canvas-wrap when the tree needs more room.
+function fitCanvasToTree() {
+    const wrap = document.querySelector('.canvas-wrap')
+    if (!wrap) return
+
+    let neededH = BASE_CANVAS_HEIGHT
+    if (nodeList.length > 0) {
+        // Height based on depth
+        const depthH = (maxDepth + 1) * 110 + 120
+        // Width hints (if tree is very wide the user can still pan)
+        neededH = Math.max(BASE_CANVAS_HEIGHT, Math.min(depthH, 1200))
+    }
+    wrap.style.height = neededH + 'px'
+    syncCanvasSize()
+}
+
+// Initial sync on load
+syncCanvasSize()
+
+// ── Sidebar collapse / expand ────────────────────────────────────────────────
+
+function toggleSidebar() {
+    const main = document.querySelector('.main')
+    main.classList.toggle('sidebar-collapsed')
+
+    // Flip chevron arrow direction
+    const chevron = document.querySelector('.toggle-chevron')
+    if (chevron) chevron.classList.toggle('collapsed')
+
+    // After the CSS transition finishes (300ms), re-sync canvas to new width
+    setTimeout(() => {
+        syncCanvasSize()
+        if (nodeList.length) resetView()
+        else draw()
+    }, 320)
 }

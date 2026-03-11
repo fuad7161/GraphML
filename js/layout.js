@@ -94,7 +94,8 @@ function layoutTree(startRoot) {
         else nodes[id].type = 'inner'
     }
 
-    resetView()   // auto-fit all nodes into the canvas viewport
+    fitCanvasToTree()   // grow canvas if tree is large
+    resetView()           // auto-fit all nodes into the canvas viewport
 }
 
 function updateStats() {
