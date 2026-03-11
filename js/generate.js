@@ -37,7 +37,7 @@ function generateHTMLFromTree() {
         }
 
         const open = attrStr ? `${pad}<${tag} ${attrStr}>` : `${pad}<${tag}>`
-        const close = `${pad}</${tag}>`
+        const close = `</${tag}>`
 
         // Leaf with optional inline text
         if (children.length === 0) {
@@ -50,7 +50,7 @@ function generateHTMLFromTree() {
         for (const childId of children) {
             html += '\n' + nodeToHTML(childId, depth + 1)
         }
-        html += `\n${close}`
+        html += `\n${pad}${close}`
         return html
     }
 
@@ -93,4 +93,35 @@ function downloadGeneratedHTML() {
     a.download = 'output.html'
     a.click()
     URL.revokeObjectURL(a.href)
+}
+
+// ── Preview Panel ─────────────────────────────────────────────────────────────
+
+function openPreview() {
+    if (rootNode === null) return
+    const section = document.getElementById('preview-section')
+    section.classList.add('open')
+    refreshPreview()
+    // Smooth scroll to the preview section
+    setTimeout(() => section.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50)
+}
+
+function refreshPreview() {
+    if (rootNode === null) return
+    const html = generateHTMLFromTree()
+    const iframe = document.getElementById('preview-iframe')
+    const doc = iframe.contentDocument || iframe.contentWindow.document
+    doc.open()
+    doc.write(html)
+    doc.close()
+}
+
+function closePreview() {
+    const section = document.getElementById('preview-section')
+    section.classList.remove('open')
+}
+
+function togglePreviewSize() {
+    const wrap = document.querySelector('.preview-frame-wrap')
+    wrap.classList.toggle('expanded')
 }

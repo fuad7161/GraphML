@@ -60,6 +60,7 @@
                 <h3>Generate HTML</h3>
                 <div class="btn-row">
                     <button class="btn-primary" onclick="showGeneratedHTML()">Generate</button>
+                    <button class="btn-primary preview-btn" onclick="openPreview()">👁️ Preview</button>
                     <button class="btn-secondary"
                         onclick="document.getElementById('output-panel').classList.remove('visible')">Clear</button>
                 </div>
@@ -96,6 +97,24 @@
             <div class="tooltip" id="tooltip"></div>
         </div>
 
+    </div>
+
+    <!-- ── Preview Panel ────────────────────────────────────────────────── -->
+    <div class="preview-section" id="preview-section">
+        <div class="preview-header">
+            <div class="preview-title">
+                <span class="preview-icon">👁️</span>
+                <h3>Live Preview</h3>
+            </div>
+            <div class="preview-actions">
+                <button class="btn-secondary" onclick="refreshPreview()">↻ Refresh</button>
+                <button class="btn-secondary" onclick="togglePreviewSize()">⤢ Expand</button>
+                <button class="btn-secondary" onclick="closePreview()">✕ Close</button>
+            </div>
+        </div>
+        <div class="preview-frame-wrap">
+            <iframe id="preview-iframe" sandbox="allow-same-origin" title="HTML Preview"></iframe>
+        </div>
     </div>
 
     <div class="status-bar">
