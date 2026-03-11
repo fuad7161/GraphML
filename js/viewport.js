@@ -1,7 +1,8 @@
 // ─── viewport.js ─────────────────────────────────────────────────────────────
 // Responsibilities:
-//   resetView() — auto-fit all nodes into the visible canvas area
-//   zoomAt()    — zoom by a factor, centered on canvas center
+//   resetView()    — auto-fit all nodes into the visible canvas area
+//   zoomAt()       — zoom by a factor, centered on canvas center
+//   ResizeObserver — keep canvas resolution matching its container
 
 function resetView() {
     if (nodeList.length === 0) {
@@ -9,7 +10,6 @@ function resetView() {
         return
     }
 
-    // Compute bounding box of all node positions
     const xs = nodeList.map(n => nodes[n].x)
     const ys = nodeList.map(n => nodes[n].y)
     const minX = Math.min(...xs) - RADIUS * 2
@@ -20,12 +20,10 @@ function resetView() {
     const sw = canvas.width
     const sh = canvas.height
 
-    // Scale so all nodes fit, with a bit of breathing room (×0.88)
     const scaleX = sw / (maxX - minX)
     const scaleY = sh / (maxY - minY)
     scale = Math.min(scaleX, scaleY, 1.4) * 0.88
 
-    // Center the bounding box in the canvas
     offsetX = sw / 2 - scale * (minX + maxX) / 2
     offsetY = sh / 2 - scale * (minY + maxY) / 2
 
@@ -34,7 +32,6 @@ function resetView() {
 }
 
 function zoomAt(factor) {
-    // Zoom centered on the canvas center point
     const cx = canvas.width / 2
     const cy = canvas.height / 2
 
@@ -44,4 +41,23 @@ function zoomAt(factor) {
 
     document.getElementById('zoom-label').textContent = `Zoom: ${Math.round(scale * 100)}%`
     draw()
+}
+
+// ── Responsive canvas resize ─────────────────────────────────────────────────
+
+const _canvasWrap = document.querySelector('.canvas-wrap')
+if (_canvasWrap && typeof ResizeObserver !== 'undefined') {
+    const _resizer = new ResizeObserver(entries => {
+        for (const entry of entries) {
+            const { width, height } = entry.contentRect
+            const dpr = window.devicePixelRatio || 1
+            canvas.width = Math.round(width * dpr)
+            canvas.height = Math.round(height * dpr)
+            canvas.style.width = width + 'px'
+            canvas.style.height = height + 'px'
+            if (nodeList.length) resetView()
+            else draw()
+        }
+    })
+    _resizer.observe(_canvasWrap)
 }

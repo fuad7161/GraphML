@@ -33,8 +33,24 @@ let dragOffset = { x: 0, y: 0 }
 // ─── Hover state ──────────────────────────────────────────────────────────────
 let hoveredNode = null
 
+// ─── Selected / focused node ──────────────────────────────────────────────────
+let selectedNode = null
+
+// ─── Search state ─────────────────────────────────────────────────────────────
+let searchQuery = ''
+let matchedNodes = new Set()
+
+// ─── Context menu state ───────────────────────────────────────────────────────
+let ctxMenuNode = null     // node id that was right-clicked
+
+// ─── Collapsed subtrees ──────────────────────────────────────────────────────
+let collapsedNodes = new Set()   // node ids whose children are hidden
+
 // ─── Particle system (reserved) ───────────────────────────────────────────────
 let particles = []
 
 // ─── Node label map ───────────────────────────────────────────────────────────
-let nodeLabels = {}  // { id: { tag, info } } populated from HTML parse
+let nodeLabels = {}  // { id: { tag, info, map } } populated from HTML parse
+
+// ─── Full tree structure ──────────────────────────────────────────────────────
+let treeNodes = {}   // { id: { tag, map, info, children:[id,…], parentId } }

@@ -1,0 +1,323 @@
+/* ── modal.css ─────────────────────────────────────────────────────────────────
+   Styles for the node-edit modal overlay and the "Generate HTML" output panel.
+─────────────────────────────────────────────────────────────────────────────── */
+
+/* ── Overlay backdrop ─────────────────────────────────────────────────────── */
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.open {
+    display: flex;
+}
+
+/* ── Modal box ────────────────────────────────────────────────────────────── */
+
+.modal {
+    background: #13131f;
+    border: 1px solid rgba(99, 102, 241, 0.28);
+    border-radius: 13px;
+    padding: 26px 28px;
+    width: 440px;
+    max-width: 95vw;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow:
+        0 24px 64px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(99, 102, 241, 0.08);
+    animation: modalIn 0.18s cubic-bezier(.22, .68, 0, 1.2);
+}
+
+@keyframes modalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.93) translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ── Modal heading ────────────────────────────────────────────────────────── */
+
+.modal h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal h3 .tag-badge {
+    background: rgba(99, 102, 241, 0.18);
+    color: #818cf8;
+    padding: 2px 9px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-family: 'Courier New', monospace;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+/* ── Form fields ──────────────────────────────────────────────────────────── */
+
+.modal-field {
+    margin-bottom: 16px;
+}
+
+.modal-field label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 6px;
+}
+
+.modal-field input[type="text"] {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 7px;
+    padding: 8px 11px;
+    color: #cbd5e1;
+    font-family: 'Courier New', monospace;
+    font-size: 0.83rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.modal-field input[type="text"]:focus {
+    border-color: rgba(99, 102, 241, 0.5);
+}
+
+/* Override sidebar.css textarea height inside the modal */
+.modal .modal-field textarea {
+    height: 64px;
+    font-size: 0.83rem;
+    resize: vertical;
+}
+
+/* ── Attribute rows ───────────────────────────────────────────────────────── */
+
+.attrs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.attr-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.attr-row input {
+    flex: 1;
+}
+
+.attr-row .btn-remove {
+    flex: none;
+    background: rgba(239, 68, 68, 0.12);
+    color: #f87171;
+    border: 1px solid rgba(239, 68, 68, 0.22);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.attr-row .btn-remove:hover {
+    background: rgba(239, 68, 68, 0.28);
+}
+
+.btn-add-attr {
+    background: rgba(99, 102, 241, 0.08);
+    color: #818cf8;
+    border: 1px dashed rgba(99, 102, 241, 0.3);
+    border-radius: 7px;
+    padding: 7px 12px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.15s;
+    margin-top: 2px;
+}
+
+.btn-add-attr:hover {
+    background: rgba(99, 102, 241, 0.18);
+    border-style: solid;
+}
+
+/* ── Modal action buttons ─────────────────────────────────────────────────── */
+
+.modal-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.modal-actions button {
+    flex: 1;
+}
+
+/* ── Generate HTML output panel ───────────────────────────────────────────── */
+
+.output-panel {
+    display: none;
+    background: rgba(0, 0, 0, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 7px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.output-panel.visible {
+    display: block;
+}
+
+.output-panel pre {
+    padding: 11px 13px;
+    color: #67e8f9;
+    font-family: 'Courier New', monospace;
+    font-size: 0.71rem;
+    line-height: 1.75;
+    overflow-x: auto;
+    max-height: 200px;
+    overflow-y: auto;
+    white-space: pre;
+    margin: 0;
+}
+
+.output-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 9px;
+    background: rgba(255, 255, 255, 0.025);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.output-toolbar button {
+    font-size: 0.72rem;
+    padding: 4px 11px;
+    flex: none;
+}
+
+.copied-msg {
+    color: #34d399;
+    font-size: 0.72rem;
+    display: none;
+    align-items: center;
+    gap: 4px;
+}
+
+.copied-msg.show {
+    display: flex;
+}
+
+/* ── Context menu ─────────────────────────────────────────────────────────── */
+
+.ctx-menu {
+    display: none;
+    position: fixed;
+    z-index: 900;
+    background: #13131f;
+    border: 1px solid rgba(99, 102, 241, 0.28);
+    border-radius: 8px;
+    padding: 5px 0;
+    min-width: 180px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.65);
+    animation: modalIn 0.12s cubic-bezier(.22, .68, 0, 1.2);
+}
+
+.ctx-menu.visible {
+    display: block;
+}
+
+.ctx-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    color: #94a3b8;
+    font-size: 0.78rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.1s;
+    flex: none;
+}
+
+.ctx-menu button:hover {
+    background: rgba(99, 102, 241, 0.12);
+    color: #e2e8f0;
+}
+
+.ctx-menu .ctx-danger:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #f87171;
+}
+
+.ctx-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    margin: 4px 0;
+}
+
+/* ── Search bar (top of canvas) ──────────────────────────────────────────── */
+
+.search-bar {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 5;
+}
+
+.search-bar input {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 5px 10px;
+    color: #94a3b8;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    outline: none;
+    width: 160px;
+    transition: border-color 0.2s, width 0.2s;
+}
+
+.search-bar input:focus {
+    border-color: rgba(99, 102, 241, 0.45);
+    width: 200px;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.18);
+}
+
+.search-count {
+    font-size: 0.65rem;
+    color: #475569;
+    white-space: nowrap;
+}

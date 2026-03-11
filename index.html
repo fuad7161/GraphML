@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/canvas.css">
     <link rel="stylesheet" href="css/statusbar.css">
+    <link rel="stylesheet" href="css/modal.css">
 </head>
 
 <body>
@@ -56,9 +57,19 @@
             </div>
 
             <div class="card">
-                <div class="hint">
-                    Drag to pan · Scroll to zoom<br>
-                    Hover nodes · Drag nodes to move
+                <h3>Generate HTML</h3>
+                <div class="btn-row">
+                    <button class="btn-primary" onclick="showGeneratedHTML()">Generate</button>
+                    <button class="btn-secondary"
+                        onclick="document.getElementById('output-panel').classList.remove('visible')">Clear</button>
+                </div>
+                <div class="output-panel" id="output-panel">
+                    <pre id="output-pre"></pre>
+                    <div class="output-toolbar">
+                        <button class="btn-secondary" onclick="copyGeneratedHTML()">Copy</button>
+                        <button class="btn-secondary" onclick="downloadGeneratedHTML()">Download</button>
+                        <span class="copied-msg" id="copied-msg">✓ Copied!</span>
+                    </div>
                 </div>
             </div>
 
@@ -66,10 +77,21 @@
 
         <div class="canvas-wrap">
             <canvas id="canvas" width="950" height="600"></canvas>
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search nodes… (Ctrl+F)"
+                    oninput="runSearch(this.value)">
+                <span class="search-count" id="search-count"></span>
+            </div>
             <div class="canvas-overlay">
                 <div class="icon-btn" title="Zoom In" onclick="zoomAt(1.2)">+</div>
                 <div class="icon-btn" title="Zoom Out" onclick="zoomAt(0.83)">−</div>
                 <div class="icon-btn" title="Fit" onclick="resetView()">⤢</div>
+            </div>
+            <div class="canvas-hint">
+                <span>Drag to pan</span>
+                <span>Scroll to zoom</span>
+                <span>Double-click to edit</span>
+                <span>Right-click for menu</span>
             </div>
             <div class="tooltip" id="tooltip"></div>
         </div>
@@ -84,12 +106,53 @@
         <span id="hover-label">Hover a node</span>
     </div>
 
+    <!-- ── Context Menu ─────────────────────────────────────────────────── -->
+    <div class="ctx-menu" id="ctx-menu">
+        <button onclick="ctxEdit()">✏️ Edit Node</button>
+        <button onclick="ctxAddChild()">➕ Add Child</button>
+        <button id="ctx-collapse" onclick="ctxCollapse()">⊟ Collapse Children</button>
+        <div class="ctx-divider"></div>
+        <button id="ctx-delete" class="ctx-danger" onclick="ctxDelete()">🗑️ Delete Node</button>
+    </div>
+
+    <!-- ── Node Edit Modal ──────────────────────────────────────────────── -->
+    <div class="modal-overlay" id="edit-modal">
+        <div class="modal">
+            <h3>Edit Node &nbsp;<span class="tag-badge" id="modal-tag-badge"></span></h3>
+
+            <div class="modal-field">
+                <label>Tag Name</label>
+                <input type="text" id="edit-tag" placeholder="e.g. div, h1, p…">
+            </div>
+
+            <div class="modal-field">
+                <label>Attributes</label>
+                <div class="attrs-list" id="attrs-list"></div>
+                <button class="btn-add-attr" onclick="addAttrRow()">+ Add Attribute</button>
+            </div>
+
+            <div class="modal-field">
+                <label>Text Content</label>
+                <textarea id="edit-info" placeholder="Inner text…"></textarea>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="saveNodeEdit()">Save Changes</button>
+                <button class="btn-secondary" onclick="closeEditModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/html_parse.js"></script>
     <script src="js/state.js"></script>
     <script src="js/layout.js"></script>
     <script src="js/draw.js"></script>
     <script src="js/viewport.js"></script>
     <script src="js/animation.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/context_menu.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/generate.js"></script>
     <script src="js/interaction.js"></script>
 
 </body>

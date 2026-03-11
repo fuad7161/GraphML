@@ -90,9 +90,3 @@ button {
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
-
-.hint {
-    font-size: 0.7rem;
-    color: #334155;
-    line-height: 1.9;
-}

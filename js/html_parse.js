@@ -79,19 +79,27 @@ function parseHTML(html) {
 
 function htmlToEdges(html) {
     const root = parseHTML(html);
-    if (!root) return { edges: [], nodeLabels: {}, rootId: null };
+    if (!root) return { edges: [], nodeLabels: {}, rootId: null, treeNodes: {} };
 
     const edges = [];
     const nodeLabels = {};
+    const treeNodes = {};   // { id: { tag, map, info, children:[id,…], parentId } }
 
-    function traverse(node) {
-        nodeLabels[node.id] = { tag: node.tag, info: node.info };
+    function traverse(node, parentId) {
+        nodeLabels[node.id] = { tag: node.tag, info: node.info, map: { ...node.map } };
+        treeNodes[node.id] = {
+            tag: node.tag,
+            map: { ...node.map },
+            info: node.info,
+            children: node.children.map(c => c.id),
+            parentId: parentId
+        };
         for (const child of node.children) {
             edges.push([node.id, child.id]);
-            traverse(child);
+            traverse(child, node.id);
         }
     }
-    traverse(root);
+    traverse(root, null);
 
-    return { edges, nodeLabels, rootId: root.id };
+    return { edges, nodeLabels, rootId: root.id, treeNodes };
 }
