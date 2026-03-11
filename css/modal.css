@@ -104,6 +104,51 @@
     border-color: rgba(99, 102, 241, 0.5);
 }
 
+/* ── Select dropdowns inside modal ────────────────────────────────────────── */
+
+.modal-field select,
+.attr-key-select {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 7px;
+    padding: 8px 11px;
+    color: #cbd5e1;
+    font-family: 'Courier New', monospace;
+    font-size: 0.83rem;
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23475569'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 28px;
+    cursor: pointer;
+}
+
+.modal-field select:focus,
+.attr-key-select:focus {
+    border-color: rgba(99, 102, 241, 0.5);
+}
+
+.modal-field select option,
+.attr-key-select option {
+    background: #13131f;
+    color: #cbd5e1;
+}
+
+.modal-field select optgroup {
+    color: #818cf8;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.attr-key-select {
+    flex: 1;
+    min-width: 0;
+}
+
 /* Override sidebar.css textarea height inside the modal */
 .modal .modal-field textarea {
     height: 64px;
@@ -126,8 +171,10 @@
     align-items: center;
 }
 
-.attr-row input {
+.attr-row input,
+.attr-row select {
     flex: 1;
+    min-width: 0;
 }
 
 .attr-row .btn-remove {

@@ -122,7 +122,7 @@
 
             <div class="modal-field">
                 <label>Tag Name</label>
-                <input type="text" id="edit-tag" placeholder="e.g. div, h1, p…">
+                <select id="edit-tag" onchange="onTagChange()"></select>
             </div>
 
             <div class="modal-field">
@@ -131,7 +131,7 @@
                 <button class="btn-add-attr" onclick="addAttrRow()">+ Add Attribute</button>
             </div>
 
-            <div class="modal-field">
+            <div class="modal-field" id="edit-info-field">
                 <label>Text Content</label>
                 <textarea id="edit-info" placeholder="Inner text…"></textarea>
             </div>
