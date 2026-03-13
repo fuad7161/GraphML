@@ -184,6 +184,33 @@ document.getElementById('input').addEventListener('input', () => {
     }, 600)
 })
 
+// ─── Fixed bottom-right scroll controls ──────────────────────────────────────
+
+let _scrollDirection = 'down'
+
+function toggleScrollDirection() {
+    const btn = document.getElementById('scroll-fab-btn')
+    if (!btn) return
+
+    if (_scrollDirection === 'down') {
+        const maxY = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight
+        )
+        window.scrollTo({ top: maxY, behavior: 'smooth' })
+        _scrollDirection = 'up'
+        btn.textContent = '↑'
+        btn.title = 'Go to top'
+        btn.setAttribute('aria-label', 'Go to top')
+    } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        _scrollDirection = 'down'
+        btn.textContent = '↓'
+        btn.title = 'Go to bottom'
+        btn.setAttribute('aria-label', 'Go to bottom')
+    }
+}
+
 // ─── Boot ─────────────────────────────────────────────────────────────────────
 
 document.getElementById('input').value = `<html>
