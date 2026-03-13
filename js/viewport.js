@@ -79,20 +79,16 @@ function fitCanvasToTree() {
 // Initial sync on load
 syncCanvasSize()
 
-// ── Sidebar collapse / expand ────────────────────────────────────────────────
+// ── Sidebar popup open / close (canvas size stays fixed) ────────────────────
 
 function toggleSidebar() {
-    const main = document.querySelector('.main')
-    main.classList.toggle('sidebar-collapsed')
-
-    // Flip chevron arrow direction
-    const chevron = document.querySelector('.toggle-chevron')
-    if (chevron) chevron.classList.toggle('collapsed')
-
-    // After the CSS transition finishes (300ms), re-sync canvas to new width
-    setTimeout(() => {
-        syncCanvasSize()
-        if (nodeList.length) resetView()
-        else draw()
-    }, 320)
+    document.body.classList.toggle('sidebar-open')
 }
+
+function closeSidebar() {
+    document.body.classList.remove('sidebar-open')
+}
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeSidebar()
+})
