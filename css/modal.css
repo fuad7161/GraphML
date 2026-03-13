@@ -335,12 +335,12 @@
     display: none;
     position: fixed;
     z-index: 920;
-    min-width: 180px;
-    max-width: min(260px, calc(100vw - 20px));
-    background: rgba(14, 14, 24, 0.98);
-    border: 1px solid rgba(99, 102, 241, 0.28);
+    min-width: 210px;
+    max-width: min(300px, calc(100vw - 20px));
+    background: rgba(20, 24, 38, 0.96);
+    border: 1px solid rgba(167, 139, 250, 0.42);
     border-radius: 10px;
-    padding: 10px;
+    padding: 12px;
     box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
@@ -352,15 +352,17 @@
 
 .node-card-header h4 {
     margin: 0;
-    font-size: 0.76rem;
-    color: #cbd5e1;
+    font-size: 0.88rem;
+    color: #bfdbfe;
+    font-weight: 700;
     font-family: 'Courier New', monospace;
 }
 
 .node-card-header p {
     margin: 4px 0 0;
-    font-size: 0.62rem;
-    color: #64748b;
+    font-size: 0.72rem;
+    color: #a5b4fc;
+    font-weight: 500;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -368,8 +370,9 @@
 
 .node-card-meta {
     margin-top: 6px;
-    font-size: 0.62rem;
-    color: #94a3b8;
+    font-size: 0.72rem;
+    color: #c4b5fd;
+    font-weight: 500;
 }
 
 .node-card-actions {
@@ -380,13 +383,13 @@
 
 .node-card-btn {
     flex: none;
-    width: 32px;
-    height: 30px;
+    width: 34px;
+    height: 32px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
-    color: #cbd5e1;
-    font-size: 0.78rem;
+    border: 1px solid rgba(167, 139, 250, 0.28);
+    background: rgba(99, 102, 241, 0.12);
+    color: #dbeafe;
+    font-size: 0.84rem;
     line-height: 1;
     display: inline-flex;
     align-items: center;
@@ -396,8 +399,8 @@
 }
 
 .node-card-btn:hover {
-    background: rgba(99, 102, 241, 0.14);
-    border-color: rgba(99, 102, 241, 0.35);
+    background: rgba(129, 140, 248, 0.24);
+    border-color: rgba(167, 139, 250, 0.45);
 }
 
 .node-card-btn.danger:hover {
@@ -615,13 +618,13 @@
 
     .node-action-card {
         max-width: calc(100vw - 16px);
-        min-width: 172px;
-        padding: 9px;
+        min-width: 190px;
+        padding: 10px;
     }
 
     .node-card-btn {
-        width: 30px;
-        height: 28px;
+        width: 32px;
+        height: 30px;
         border-radius: 7px;
     }
 }
@@ -683,18 +686,18 @@
     }
 
     .node-action-card {
-        min-width: 160px;
-        padding: 8px;
+        min-width: 176px;
+        padding: 9px;
         border-radius: 9px;
     }
 
     .node-card-header h4 {
-        font-size: 0.72rem;
+        font-size: 0.8rem;
     }
 
     .node-card-header p,
     .node-card-meta {
-        font-size: 0.58rem;
+        font-size: 0.66rem;
     }
 
     .node-card-actions {
@@ -702,8 +705,8 @@
     }
 
     .node-card-btn {
-        width: 28px;
-        height: 27px;
-        font-size: 0.72rem;
+        width: 30px;
+        height: 29px;
+        font-size: 0.78rem;
     }
 }
