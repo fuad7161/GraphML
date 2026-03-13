@@ -468,3 +468,128 @@
 .preview-btn:hover {
     background: rgba(34, 211, 238, 0.22) !important;
 }
+
+@media (max-width: 768px) {
+    .modal {
+        width: 94vw;
+        padding: 18px 16px;
+        max-height: 88vh;
+    }
+
+    .modal h3 {
+        font-size: 0.86rem;
+        margin-bottom: 14px;
+    }
+
+    .modal-actions {
+        margin-top: 16px;
+        gap: 6px;
+    }
+
+    .output-panel pre {
+        max-height: 160px;
+        font-size: 0.68rem;
+    }
+
+    .search-bar {
+        top: 8px;
+        left: 8px;
+        gap: 5px;
+    }
+
+    .search-bar input {
+        width: 136px;
+        font-size: 0.68rem;
+        padding: 4px 8px;
+    }
+
+    .search-bar input:focus {
+        width: 160px;
+    }
+
+    .preview-section {
+        padding: 0 12px 10px;
+    }
+
+    .preview-header {
+        padding: 8px 10px;
+        gap: 8px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .preview-actions {
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    .preview-actions .btn-secondary {
+        padding: 4px 8px;
+        font-size: 0.62rem;
+    }
+
+    .preview-frame-wrap {
+        height: 240px;
+    }
+
+    .preview-frame-wrap.expanded {
+        height: 380px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        width: 96vw;
+        padding: 14px 12px;
+        border-radius: 10px;
+    }
+
+    .modal-field {
+        margin-bottom: 12px;
+    }
+
+    .modal-field label {
+        font-size: 0.62rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .output-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .output-toolbar button {
+        font-size: 0.66rem;
+        padding: 4px 8px;
+    }
+
+    .search-bar input {
+        width: 118px;
+    }
+
+    .search-bar input:focus {
+        width: 132px;
+    }
+
+    .search-count {
+        display: none;
+    }
+
+    .preview-section {
+        padding: 0 8px 8px;
+    }
+
+    .preview-title h3 {
+        font-size: 0.64rem;
+    }
+
+    .preview-frame-wrap {
+        height: 210px;
+    }
+
+    .preview-frame-wrap.expanded {
+        height: 320px;
+    }
+}

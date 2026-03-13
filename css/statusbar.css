@@ -37,3 +37,29 @@
         opacity: 0.3;
     }
 }
+
+@media (max-width: 768px) {
+    .status-bar {
+        padding: 0 12px 10px;
+        gap: 10px;
+        font-size: 0.62rem;
+        flex-wrap: wrap;
+    }
+
+    .status-bar span {
+        gap: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+    .status-bar {
+        padding: 0 8px 8px;
+        gap: 8px;
+        font-size: 0.58rem;
+    }
+
+    .dot-live {
+        width: 4px;
+        height: 4px;
+    }
+}

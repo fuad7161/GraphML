@@ -127,7 +127,40 @@ canvas:active {
     transform: translateY(0);
 }
 
+@media (max-width: 1024px) {
+    .canvas-wrap {
+        height: 520px;
+        min-height: 340px;
+    }
+}
+
 @media (max-width: 768px) {
+    .canvas-wrap {
+        height: 430px;
+        min-height: 280px;
+    }
+
+    .canvas-overlay {
+        top: 8px;
+        right: 8px;
+        gap: 4px;
+    }
+
+    .icon-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+    }
+
+    .canvas-hint {
+        top: 40px;
+        right: 8px;
+    }
+
+    .canvas-hint span {
+        font-size: 0.56rem;
+    }
+
     .scroll-fab {
         right: 12px;
         bottom: 12px;
@@ -137,5 +170,45 @@ canvas:active {
         width: 34px;
         height: 34px;
         font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .canvas-wrap {
+        height: 350px;
+        min-height: 220px;
+    }
+
+    canvas {
+        border-radius: 8px;
+    }
+
+    .canvas-overlay {
+        top: 6px;
+        right: 6px;
+        gap: 3px;
+    }
+
+    .icon-btn {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+        border-radius: 5px;
+    }
+
+    .canvas-hint {
+        display: none;
+    }
+
+    .scroll-fab {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .scroll-fab-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 15px;
+        border-radius: 8px;
     }
 }

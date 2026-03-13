@@ -90,3 +90,67 @@ button {
     text-transform: uppercase;
     letter-spacing: 0.06em;
 }
+
+@media (max-width: 768px) {
+    textarea {
+        height: 150px;
+        font-size: 0.74rem;
+        line-height: 1.5;
+    }
+
+    button {
+        font-size: 0.74rem;
+        padding: 7px 10px;
+    }
+
+    .btn-row {
+        gap: 6px;
+    }
+
+    .stat-box {
+        padding: 8px;
+    }
+
+    .stat-box .val {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    textarea {
+        height: 128px;
+        font-size: 0.72rem;
+        padding: 8px;
+    }
+
+    .btn-row {
+        gap: 5px;
+        flex-wrap: wrap;
+    }
+
+    .btn-row button {
+        flex: 1 1 calc(50% - 5px);
+        min-width: 0;
+    }
+
+    button {
+        font-size: 0.68rem;
+        padding: 6px 8px;
+    }
+
+    .stats {
+        gap: 6px;
+    }
+
+    .stat-box {
+        padding: 7px;
+    }
+
+    .stat-box .val {
+        font-size: 1.05rem;
+    }
+
+    .stat-box .lbl {
+        font-size: 0.52rem;
+    }
+}
