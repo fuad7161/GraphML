@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" fill="none">
+  <rect width="1200" height="700" fill="#0f172a"/>
+  <rect x="40" y="40" width="1120" height="620" rx="16" fill="#111827" stroke="#374151"/>
+  <rect x="70" y="80" width="1060" height="56" rx="10" fill="#1f2937"/>
+  <rect x="90" y="98" width="180" height="20" rx="6" fill="#818cf8"/>
+  <rect x="290" y="98" width="140" height="20" rx="6" fill="#334155"/>
+  <rect x="450" y="98" width="140" height="20" rx="6" fill="#334155"/>
+  <rect x="610" y="98" width="140" height="20" rx="6" fill="#334155"/>
+
+  <rect x="70" y="160" width="300" height="470" rx="12" fill="#0b1220" stroke="#334155"/>
+  <rect x="390" y="160" width="740" height="470" rx="12" fill="#020617" stroke="#334155"/>
+
+  <circle cx="560" cy="300" r="24" fill="#6366f1"/>
+  <circle cx="690" cy="240" r="24" fill="#0ea5e9"/>
+  <circle cx="820" cy="300" r="24" fill="#10b981"/>
+  <circle cx="950" cy="240" r="24" fill="#f59e0b"/>
+
+  <line x1="560" y1="300" x2="690" y2="240" stroke="#64748b" stroke-width="2"/>
+  <line x1="690" y1="240" x2="820" y2="300" stroke="#64748b" stroke-width="2"/>
+  <line x1="820" y1="300" x2="950" y2="240" stroke="#64748b" stroke-width="2"/>
+
+  <rect x="430" y="500" width="300" height="110" rx="10" fill="#111827" stroke="#6366f1"/>
+  <text x="580" y="560" fill="#cbd5e1" font-size="22" font-family="Arial" text-anchor="middle">Demo Screenshot Placeholder</text>
+
+  <text x="600" y="676" fill="#94a3b8" font-size="18" font-family="Arial" text-anchor="middle">Replace this file with your app screenshot later</text>
+</svg>

@@ -1,76 +1,135 @@
 # &lt;/&gt; HTML Visualizer
 
-A browser-based tool that turns raw HTML into an interactive tree graph on a canvas. Paste any HTML snippet, instantly see its DOM structure as nodes and edges, then edit, search, and regenerate clean HTML — all without leaving the page.
+HTML Visualizer is a browser-based tool that converts raw HTML into an interactive DOM tree on canvas.
+
+Paste HTML, visualize structure, edit nodes, regenerate markup, and preview output — all in one page.
 
 ---
 
-## ✨ Features
+## ✨ Full Feature List
 
-<details>
-<summary>🌳 Parse & Visualize</summary>
+### 1) Parse & Visualize DOM
+- Paste HTML in the sidebar and click **Visualize**
+- Builds a node-edge DOM tree on HTML Canvas
+- Animated rendering for edges and nodes
+- Auto-layout with depth-based spacing
 
-Paste HTML into the sidebar and hit **Visualize**. The parser tokenizes your markup and renders a tree graph on an HTML Canvas with animated node and edge drawing.
-</details>
+### 2) Canvas Interaction
+- **Pan:** click + drag
+- **Zoom:** mouse wheel or `+ / −` overlay buttons
+- **Fit view:** `⤢` button or Reset flow
+- Smooth viewport transforms and redraw
 
-<details>
-<summary>🔍 Search Nodes</summary>
+### 3) Search
+- Search input at canvas top-left
+- Filters by tag/text/attributes
+- Matching nodes highlighted, others dimmed
+- Keyboard shortcut: **Ctrl+F**
 
-Use the search bar (or `Ctrl+F`) to find nodes by tag name, text content, or attribute values. Matching nodes are highlighted while the rest dim out.
-</details>
+### 4) Node Editing (Smart Modal)
+- Double-click a node to open editor
+- Tag dropdown grouped by HTML categories
+- Attribute key picker (global + tag-specific)
+- Add/remove attributes dynamically
+- Text field auto-hidden for non-text tags
 
-<details>
-<summary>✏️ Edit Any Node</summary>
+### 5) Node Operations (Desktop + Mobile Friendly)
 
-Double-click a node to open the smart editor modal:
-- **Tag name** — grouped dropdown (Sections, Headings, Text, Forms, Media, etc.)
-- **Attributes** — key dropdown pre-filled with global + tag-specific attributes
-- **Text content** — conditionally shown (hidden for void & container-only elements)
-</details>
+#### Right-click Context Menu (Desktop)
+- **Edit Node**
+- **Add Child**
+- **Collapse / Expand Children**
+- **Delete Node**
 
-<details>
-<summary>📋 Right-Click Context Menu</summary>
+#### Node Action Card (Hover / Tap)
+- Shows node info card with quick actions
+- 4 action icons:
+	- ➕ Add child
+	- ✏️ Edit
+	- ⊟/⊞ Collapse/Expand
+	- 🗑️ Delete
+- Works as touch-friendly operation panel on mobile
 
-Right-click a node for quick actions:
-- **Add Child** — inserts a new child node and opens the editor
-- **Edit Node** — opens the edit modal
-- **Collapse / Expand** — hide or show the subtree
-- **Delete Node** — removes the node and its entire subtree
-</details>
+### 6) Collapse / Expand Subtrees
+- Collapse children of any node
+- Expand back instantly
+- Hidden subtree logic respected in render/search flow
 
-<details>
-<summary>📝 Generate HTML</summary>
+### 7) HTML Generation
+- Generate clean, indented HTML from current tree
+- Copy generated HTML to clipboard
+- Download generated output as `.html`
+- Clear generated output panel
 
-Reconstructs clean, properly indented HTML from the current tree state. Copy to clipboard or download as an `.html` file — every edit you made is reflected.
-</details>
+### 8) Live Preview
+- Open iframe preview of generated HTML
+- Refresh preview after changes
+- Expand/collapse preview size
+- Close preview panel
 
-<details>
-<summary>👁️ Live Preview</summary>
+### 9) Sidebar Drawer
+- Left popup sidebar (does not resize canvas)
+- Open/close from top-left navbar menu icon
+- Backdrop click closes sidebar
+- **Escape** key closes sidebar
 
-Click **Preview** to render the generated HTML inside an embedded iframe. Refresh any time after edits to see the updated page, and expand/collapse the preview panel as needed.
-</details>
+### 10) Theme Toggle
+- Top-right navbar button toggles **Night / Light** mode
+- Default is **Night mode**
+- Theme is saved in `localStorage`
 
-<details>
-<summary>🧭 Navigation & Interaction</summary>
+### 11) Fixed Scroll Helper Button
+- Bottom-right floating button
+- Toggles direction each click:
+	- Go to bottom
+	- Go to top
 
-- **Pan** — click and drag the canvas
-- **Zoom** — scroll wheel or use the `+` / `−` buttons
-- **Fit View** — auto-fit all nodes into the viewport
-- **Breadcrumb Path** — hover a node to see its full path in the status bar
-- **Tooltip** — on-canvas tooltip shows tag, attributes, and text at a glance
-- **Keyboard Shortcuts** — `Delete` to remove, `Ctrl+F` to search, `Escape` to dismiss
-</details>
+### 12) Status & Stats
+- Status bar shows readiness, zoom percent, hover path
+- Stats panel includes:
+	- Nodes
+	- Edges
+	- Depth
+	- Leaves
 
-<details>
-<summary>📊 Stats Panel</summary>
+### 13) Keyboard Shortcuts
+- **Ctrl+F**: focus search
+- **Delete / Backspace**: delete selected non-root node
+- **Escape**: dismiss overlay-style UI (sidebar/menu states)
 
-Live counts of **Nodes**, **Edges**, **Depth**, and **Leaves** update as you modify the tree.
-</details>
+### 14) Mobile Responsiveness
+- Optimized layout for phone/tablet/desktop
+- Responsive sidebar drawer sizing
+- Responsive node action card and controls
+- Touch-friendly UI for node operations
 
-<details>
-<summary>↔️ Collapsible Sidebar</summary>
+---
 
-Toggle the sidebar open/closed to give the canvas full width when you need more room to explore large trees.
-</details>
+## 🧩 Project Structure
+
+- `index.html` — UI structure and script wiring
+- `css/` — modular styling (`base`, `header`, `layout`, `sidebar`, `canvas`, `statusbar`, `modal`)
+- `js/` — feature modules:
+	- `html_parse.js`
+	- `layout.js`
+	- `draw.js`
+	- `viewport.js`
+	- `interaction.js`
+	- `context_menu.js`
+	- `editor.js`
+	- `generate.js`
+	- `search.js`
+	- `animation.js`
+	- `theme.js`
+	- `state.js`
+
+---
+
+## ▶️ Run
+
+Just open [index.html](index.html) in a browser.
+
+No build step required.
 
 ---
 

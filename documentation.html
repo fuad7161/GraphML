@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Visualizer Documentation</title>
+    <style>
+        :root {
+            --bg: #0c0c14;
+            --panel: #13131f;
+            --text: #cbd5e1;
+            --muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.09);
+            --accent: #818cf8;
+            --accent-soft: rgba(129, 140, 248, 0.14);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Inter, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .wrap {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: var(--text);
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            padding: 7px 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .hero {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+        }
+
+        h2 {
+            font-size: 0.98rem;
+            margin-bottom: 8px;
+            color: #e2e8f0;
+        }
+
+        p,
+        li {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .feature-list-view {
+            margin-bottom: 14px;
+        }
+
+        .feature-list-view ol {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        .feature-list-view li {
+            margin-bottom: 6px;
+        }
+
+        .explain-list {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .explain-item {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
+        }
+
+        .explain-item h3 {
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            margin-bottom: 5px;
+        }
+
+        .shot-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .shot {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            background: #090910;
+        }
+
+        .shot img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .shot figcaption {
+            padding: 8px 10px;
+            color: #94a3b8;
+            font-size: 0.78rem;
+            border-top: 1px solid var(--border);
+        }
+
+        ul {
+            padding-left: 18px;
+        }
+
+        .example {
+            margin-top: 10px;
+            background: #090910;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 10px;
+            overflow: auto;
+        }
+
+        pre {
+            color: #a5f3fc;
+            font-family: "Courier New", monospace;
+            font-size: 0.78rem;
+            white-space: pre;
+        }
+
+        .note {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            background: var(--accent-soft);
+            border: 1px solid rgba(129, 140, 248, 0.35);
+            color: #c7d2fe;
+            font-size: 0.82rem;
+        }
+
+        .kbd {
+            display: inline-block;
+            font-size: 0.72rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 2px 6px;
+            color: #e2e8f0;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        @media (max-width: 760px) {
+            body {
+                padding: 12px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .shot-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 1.1rem;
+            }
+
+            p,
+            li {
+                font-size: 0.84rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="topbar">
+            <h1>HTML Visualizer — Documentation</h1>
+            <a href="index.html" class="back-btn">← Back to App</a>
+        </div>
+
+        <section class="hero">
+            <p>
+                This app converts raw HTML into an interactive DOM tree. You can visualize, search, edit nodes,
+                generate clean HTML, and preview output live.
+            </p>
+            <div class="note">
+                Default theme is Night Mode. Use the top-right toggle in the app to switch Light/Night.
+            </div>
+        </section>
+
+        <section class="card feature-list-view">
+            <h2>Feature List View</h2>
+            <p>Quick list of everything available in the app:</p>
+            <ol>
+                <li>Parse HTML and render DOM graph</li>
+                <li>Pan / Zoom / Fit canvas controls</li>
+                <li>Search nodes by tag, text, and attributes</li>
+                <li>Right-click context menu actions</li>
+                <li>Hover/Tap node action card (Add, Edit, Collapse, Delete)</li>
+                <li>Smart edit modal for tag/attributes/text</li>
+                <li>Generate, copy, and download final HTML</li>
+                <li>Live iframe preview with expand/refresh</li>
+                <li>Sidebar popup drawer from navbar menu</li>
+                <li>Theme toggle (Night/Light) with saved preference</li>
+                <li>Floating page scroll helper button</li>
+                <li>Responsive desktop/tablet/mobile support</li>
+            </ol>
+        </section>
+
+        <section class="explain-list">
+            <article class="explain-item">
+                <h3>How editing works</h3>
+                <p>Pick any node, open the editor, change its tag, attributes, and text (when valid), then save. Tree,
+                    stats, generated HTML, and preview stay in sync.</p>
+            </article>
+            <article class="explain-item">
+                <h3>How node operations work</h3>
+                <p>On desktop, use right-click menu. On mobile/touch, tap node to use action card buttons. Both paths
+                    support add, edit, collapse/expand, and delete.</p>
+            </article>
+            <article class="explain-item">
+                <h3>How generation and preview work</h3>
+                <p>After any change, click Generate to produce clean HTML. Copy or download it, and open Preview to
+                    render output directly inside the app.</p>
+            </article>
+        </section>
+
+        <section class="grid">
+            <article class="card">
+                <h2>Core Features</h2>
+                <ul>
+                    <li>Parse pasted HTML into a tree graph</li>
+                    <li>Animated canvas drawing for nodes and edges</li>
+                    <li>Pan, zoom, and fit controls</li>
+                    <li>Live node stats: Nodes, Edges, Depth, Leaves</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h2>Node Operations</h2>
+                <ul>
+                    <li>Right-click node menu: Edit, Add, Collapse, Delete</li>
+                    <li>Hover/tap node action card with 4 quick icons</li>
+                    <li>Double-click node to open smart editor</li>
+                    <li>Collapse/expand subtree support</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h2>Editor & Generation</h2>
+                <ul>
+                    <li>Smart tag selector with grouped HTML tags</li>
+                    <li>Attribute key/value editor</li>
+                    <li>Text content editor (when valid for tag)</li>
+                    <li>Generate, copy, and download updated HTML</li>
+                    <li>Live iframe preview with refresh/expand/close</li>
+                </ul>
+            </article>
+
+            <article class="card">
+                <h2>UI & Mobile Support</h2>
+                <ul>
+                    <li>Popup sidebar drawer from navbar menu button</li>
+                    <li>Canvas stays stable while sidebar opens</li>
+                    <li>Bottom-right floating up/down scroll helper</li>
+                    <li>Responsive layout for desktop/tablet/mobile</li>
+                    <li>Theme toggle (Night/Light) with saved preference</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="card" style="margin-bottom:12px;">
+            <h2>Keyboard Shortcuts</h2>
+            <ul>
+                <li><span class="kbd">Ctrl</span> + <span class="kbd">F</span> → Focus search</li>
+                <li><span class="kbd">Delete</span> / <span class="kbd">Backspace</span> → Delete selected node (not
+                    root)</li>
+                <li><span class="kbd">Escape</span> → Close overlay/popup UI (sidebar, menus)</li>
+            </ul>
+        </section>
+
+        <section class="card" style="margin-bottom:12px;">
+            <h2>Example Input HTML</h2>
+            <p>Paste this into the sidebar input and click <strong>Visualize</strong>:</p>
+            <div class="example">
+                <pre>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Demo&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;
+      &lt;h1&gt;My Page&lt;/h1&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+      &lt;p class="lead"&gt;Hello Visualizer&lt;/p&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Item A&lt;/li&gt;
+        &lt;li&gt;Item B&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/main&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+            </div>
+        </section>
+
+        <section class="card" style="margin-bottom:12px;">
+            <h2>Demo Images (Replace Later)</h2>
+            <p>These are temporary placeholders. Replace with your real screenshots when ready.</p>
+            <div class="shot-grid">
+                <figure class="shot">
+                    <img src="assets/demo-placeholder.svg" alt="Demo app screenshot placeholder">
+                    <figcaption>Desktop view placeholder (replace with real app screenshot)</figcaption>
+                </figure>
+                <figure class="shot">
+                    <img src="assets/demo-placeholder.svg" alt="Demo mobile screenshot placeholder">
+                    <figcaption>Mobile view placeholder (replace with real app screenshot)</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Quick Usage Flow</h2>
+            <ul>
+                <li>Paste HTML → click <strong>Visualize</strong></li>
+                <li>Inspect nodes on canvas; hover/tap for action card</li>
+                <li>Edit/add/collapse/delete nodes</li>
+                <li>Click <strong>Generate</strong> to build final HTML</li>
+                <li>Use <strong>Preview</strong> to render output</li>
+                <li>Copy/download when done</li>
+            </ul>
+        </section>
+    </div>
+</body>
+
+</html>

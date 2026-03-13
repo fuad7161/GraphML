@@ -54,6 +54,7 @@ body.light-mode header {
 }
 
 body.light-mode .menu-toggle,
+body.light-mode .docs-link,
 body.light-mode .theme-toggle {
     background: rgba(15, 23, 42, 0.04);
     border-color: rgba(15, 23, 42, 0.12);
