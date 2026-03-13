@@ -137,6 +137,24 @@
             aria-label="Go to bottom">↓</button>
     </div>
 
+    <div class="node-action-card" id="node-action-card" aria-live="polite">
+        <div class="node-card-header">
+            <h4 id="node-card-tag">&lt;node&gt;</h4>
+            <p id="node-card-path">Path</p>
+        </div>
+        <div class="node-card-meta" id="node-card-meta">No attributes</div>
+        <div class="node-card-actions">
+            <button type="button" class="node-card-btn" onclick="nodeCardAdd()" title="Add child"
+                aria-label="Add child">➕</button>
+            <button type="button" class="node-card-btn" onclick="nodeCardEdit()" title="Edit node"
+                aria-label="Edit node">✏️</button>
+            <button type="button" class="node-card-btn" id="node-card-collapse-btn" onclick="nodeCardCollapse()"
+                title="Collapse children" aria-label="Collapse children">⊟</button>
+            <button type="button" class="node-card-btn danger" onclick="nodeCardDelete()" title="Delete node"
+                aria-label="Delete node">🗑️</button>
+        </div>
+    </div>
+
     <!-- ── Context Menu ─────────────────────────────────────────────────── -->
     <div class="ctx-menu" id="ctx-menu">
         <button onclick="ctxEdit()">✏️ Edit Node</button>

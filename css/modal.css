@@ -329,6 +329,83 @@
     margin: 4px 0;
 }
 
+/* ── Node action card (hover/tap quick actions) ─────────────────────────── */
+
+.node-action-card {
+    display: none;
+    position: fixed;
+    z-index: 920;
+    min-width: 180px;
+    max-width: min(260px, calc(100vw - 20px));
+    background: rgba(14, 14, 24, 0.98);
+    border: 1px solid rgba(99, 102, 241, 0.28);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.node-action-card.visible {
+    display: block;
+}
+
+.node-card-header h4 {
+    margin: 0;
+    font-size: 0.76rem;
+    color: #cbd5e1;
+    font-family: 'Courier New', monospace;
+}
+
+.node-card-header p {
+    margin: 4px 0 0;
+    font-size: 0.62rem;
+    color: #64748b;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.node-card-meta {
+    margin-top: 6px;
+    font-size: 0.62rem;
+    color: #94a3b8;
+}
+
+.node-card-actions {
+    margin-top: 9px;
+    display: flex;
+    gap: 6px;
+}
+
+.node-card-btn {
+    flex: none;
+    width: 32px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    color: #cbd5e1;
+    font-size: 0.78rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.node-card-btn:hover {
+    background: rgba(99, 102, 241, 0.14);
+    border-color: rgba(99, 102, 241, 0.35);
+}
+
+.node-card-btn.danger:hover {
+    background: rgba(239, 68, 68, 0.14);
+    border-color: rgba(239, 68, 68, 0.35);
+    color: #fca5a5;
+}
+
 /* ── Search bar (top of canvas) ──────────────────────────────────────────── */
 
 .search-bar {
@@ -535,6 +612,18 @@
     .preview-frame-wrap.expanded {
         height: 380px;
     }
+
+    .node-action-card {
+        max-width: calc(100vw - 16px);
+        min-width: 172px;
+        padding: 9px;
+    }
+
+    .node-card-btn {
+        width: 30px;
+        height: 28px;
+        border-radius: 7px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -591,5 +680,30 @@
 
     .preview-frame-wrap.expanded {
         height: 320px;
+    }
+
+    .node-action-card {
+        min-width: 160px;
+        padding: 8px;
+        border-radius: 9px;
+    }
+
+    .node-card-header h4 {
+        font-size: 0.72rem;
+    }
+
+    .node-card-header p,
+    .node-card-meta {
+        font-size: 0.58rem;
+    }
+
+    .node-card-actions {
+        gap: 5px;
+    }
+
+    .node-card-btn {
+        width: 28px;
+        height: 27px;
+        font-size: 0.72rem;
     }
 }

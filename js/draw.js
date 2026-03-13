@@ -16,7 +16,6 @@ function draw() {
     drawGrid()
     drawEdges()
     drawNodes()
-    drawTooltip()
 
     ctx.restore()
 }
