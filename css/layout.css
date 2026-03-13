@@ -16,7 +16,8 @@
     position: fixed;
     top: 72px;
     left: 16px;
-    width: min(320px, calc(100vw - 32px));
+    width: 300px;
+    max-width: calc(100vw - 32px);
     max-height: calc(100vh - 88px);
     display: flex;
     flex-direction: column;
@@ -89,7 +90,8 @@ body.sidebar-open .sidebar-backdrop {
     .sidebar {
         top: 64px;
         left: 10px;
-        width: calc(100vw - 20px);
+        width: 280px;
+        max-width: calc(100vw - 20px);
         max-height: calc(100vh - 76px);
     }
 
@@ -110,7 +112,8 @@ body.sidebar-open .sidebar-backdrop {
 
     .sidebar {
         left: 8px;
-        width: calc(100vw - 16px);
+        width: 280px;
+        max-width: calc(100vw - 16px);
         max-height: calc(100vh - 72px);
         padding: 8px;
     }
