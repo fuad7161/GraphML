@@ -55,6 +55,30 @@ header h1 {
     letter-spacing: -0.01em;
 }
 
+.theme-toggle {
+    margin-left: auto;
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s;
+    flex: none;
+    padding: 0;
+}
+
+.theme-toggle:hover {
+    background: rgba(99, 102, 241, 0.14);
+    border-color: rgba(129, 140, 248, 0.35);
+}
+
 @media (max-width: 768px) {
     header {
         padding: 12px 14px;
@@ -64,6 +88,12 @@ header h1 {
     .menu-toggle {
         width: 30px;
         height: 30px;
+    }
+
+    .theme-toggle {
+        width: 30px;
+        height: 30px;
+        font-size: 0.88rem;
     }
 
     header h1 {
@@ -81,6 +111,13 @@ header h1 {
         width: 28px;
         height: 28px;
         border-radius: 7px;
+    }
+
+    .theme-toggle {
+        width: 28px;
+        height: 28px;
+        border-radius: 7px;
+        font-size: 0.82rem;
     }
 
     .menu-toggle span {

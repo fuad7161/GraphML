@@ -24,6 +24,8 @@
         </button>
         <span class="logo">&lt;/&gt;</span>
         <h1>HTML Visualizer</h1>
+        <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Switch to light mode"
+            aria-label="Switch to light mode">☀️</button>
     </header>
 
     <div class="sidebar-backdrop" onclick="closeSidebar()"></div>
@@ -193,6 +195,7 @@
     </div>
 
     <script src="js/html_parse.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/state.js"></script>
     <script src="js/layout.js"></script>
     <script src="js/draw.js"></script>

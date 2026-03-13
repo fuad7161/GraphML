@@ -40,3 +40,90 @@ body {
     background: rgba(255, 255, 255, 0.08);
     border-radius: 3px;
 }
+
+/* ── Light mode overrides (default remains dark) ─────────────────────────── */
+
+body.light-mode {
+    background: #f3f6fb;
+    color: #1e293b;
+}
+
+body.light-mode header {
+    border-bottom-color: rgba(15, 23, 42, 0.08);
+    background: rgba(255, 255, 255, 0.75);
+}
+
+body.light-mode .menu-toggle,
+body.light-mode .theme-toggle {
+    background: rgba(15, 23, 42, 0.04);
+    border-color: rgba(15, 23, 42, 0.12);
+    color: #334155;
+}
+
+body.light-mode .menu-toggle span {
+    background: #334155;
+}
+
+body.light-mode .logo {
+    color: #4f46e5;
+}
+
+body.light-mode header h1 {
+    color: #0f172a;
+}
+
+body.light-mode canvas {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.light-mode .card,
+body.light-mode .sidebar,
+body.light-mode .node-action-card,
+body.light-mode .ctx-menu,
+body.light-mode .modal,
+body.light-mode .preview-header {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(15, 23, 42, 0.12);
+}
+
+body.light-mode .card h3,
+body.light-mode .status-bar,
+body.light-mode .search-count,
+body.light-mode .node-card-header p,
+body.light-mode .node-card-meta {
+    color: #475569;
+}
+
+body.light-mode textarea,
+body.light-mode .search-bar input,
+body.light-mode .modal-field input[type="text"],
+body.light-mode .modal-field select,
+body.light-mode .attr-key-select {
+    background: rgba(241, 245, 249, 0.95);
+    border-color: rgba(15, 23, 42, 0.12);
+    color: #1e293b;
+}
+
+body.light-mode .btn-secondary,
+body.light-mode .node-card-btn,
+body.light-mode .icon-btn {
+    background: rgba(15, 23, 42, 0.04);
+    border-color: rgba(15, 23, 42, 0.12);
+    color: #334155;
+}
+
+body.light-mode .stat-box,
+body.light-mode .output-panel,
+body.light-mode .output-toolbar {
+    background: rgba(241, 245, 249, 0.85);
+    border-color: rgba(15, 23, 42, 0.1);
+}
+
+body.light-mode .sidebar-backdrop {
+    background: rgba(15, 23, 42, 0.2);
+}
+
+body.light-mode ::-webkit-scrollbar-thumb {
+    background: rgba(15, 23, 42, 0.16);
+}
