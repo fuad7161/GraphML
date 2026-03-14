@@ -139,6 +139,8 @@
     <div class="scroll-fab" aria-label="Page scroll controls">
         <button id="scroll-fab-btn" class="scroll-fab-btn" onclick="toggleScrollDirection()" title="Go to bottom"
             aria-label="Go to bottom">↓</button>
+        <button id="feedback-fab-btn" class="scroll-fab-btn feedback-fab-btn" onclick="openFeedbackModal()"
+            title="Send feedback" aria-label="Send feedback">💬</button>
     </div>
 
     <div class="node-action-card" id="node-action-card" aria-live="polite">
@@ -196,8 +198,40 @@
         </div>
     </div>
 
+    <!-- ── Feedback Modal ───────────────────────────────────────────────── -->
+    <div class="modal-overlay" id="feedback-modal">
+        <div class="modal feedback-modal-box">
+            <h3>Send Feedback</h3>
+
+            <form id="feedback-form" onsubmit="submitFeedback(event)">
+                <div class="modal-field">
+                    <label>Your Name</label>
+                    <input type="text" id="fb-name" placeholder="Your name" maxlength="80">
+                </div>
+
+                <div class="modal-field">
+                    <label>Email (optional)</label>
+                    <input type="text" id="fb-email" placeholder="you@example.com" maxlength="120">
+                </div>
+
+                <div class="modal-field">
+                    <label>Feedback</label>
+                    <textarea id="fb-message" placeholder="Write your feedback..." required maxlength="2000"></textarea>
+                </div>
+
+                <div class="feedback-status" id="feedback-status"></div>
+
+                <div class="modal-actions">
+                    <button class="btn-primary" type="submit" id="feedback-submit-btn">Submit</button>
+                    <button class="btn-secondary" type="button" onclick="closeFeedbackModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <script src="js/html_parse.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/feedback.js"></script>
     <script src="js/state.js"></script>
     <script src="js/layout.js"></script>
     <script src="js/draw.js"></script>

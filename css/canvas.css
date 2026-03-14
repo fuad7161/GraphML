@@ -98,6 +98,9 @@ canvas:active {
     right: 16px;
     bottom: 16px;
     z-index: 250;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .scroll-fab-btn {
@@ -125,6 +128,14 @@ canvas:active {
 
 .scroll-fab-btn:active {
     transform: translateY(0);
+}
+
+.feedback-fab-btn {
+    font-size: 16px;
+}
+
+.feedback-fab-btn:hover {
+    transform: translateY(-1px);
 }
 
 @media (max-width: 1024px) {
@@ -164,12 +175,17 @@ canvas:active {
     .scroll-fab {
         right: 12px;
         bottom: 12px;
+        gap: 6px;
     }
 
     .scroll-fab-btn {
         width: 34px;
         height: 34px;
         font-size: 16px;
+    }
+
+    .feedback-fab-btn {
+        font-size: 14px;
     }
 }
 

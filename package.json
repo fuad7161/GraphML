@@ -1,0 +1,15 @@
+{
+    "name": "html-visualizer",
+    "version": "1.0.0",
+    "private": true,
+    "description": "HTML Visualizer utility scripts",
+    "scripts": {
+        "start": "node server.js",
+        "test:db": "node scripts/test-mongodb.js"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^5.2.1",
+        "mongodb": "^6.8.0"
+    }
+}
